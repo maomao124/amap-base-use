@@ -14,10 +14,11 @@ const defaultPlugin: Array<string> = [
 
 /**
  * 初始化地图
+ * @param that vue视图的this指针
  * @param pluginList 插件列表
  * @param key 高德地图的key
  */
-export function initAMap(pluginList: Array<string>, key: string): any
+export function initAMap(that: any, pluginList: Array<string>, key: string): any
 {
     window._AMapSecurityConfig = {
         serviceHost: `http://127.0.0.1:8089/_AMapService`
@@ -31,17 +32,17 @@ export function initAMap(pluginList: Array<string>, key: string): any
     })
         .then((AMap: any) =>
         {
-            return new AMap.Map("container", {
+            const map = new AMap.Map("container", {
                 // 设置地图容器id
                 viewMode: "3D", // 是否为3D地图模式
                 zoom: 12, // 初始化地图级别
                 center: [111.397428, 23.90923], // 初始化地图中心点位置
             });
+            that.map = map;
         })
         .catch((e: Error) =>
         {
             console.log('加载失败：', e);
-            return null;
         });
 }
 

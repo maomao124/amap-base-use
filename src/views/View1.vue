@@ -17,7 +17,7 @@ export default {
     created()
     {
         console.log("初始化")
-        this.map = initAMap();
+        initAMap(this);
     },
     beforeDestroy()
     {
@@ -32,6 +32,6 @@ export default {
     padding: 0px;
     margin: 0px;
     width: 100%;
-    height: 800px;
+    height: 90vh;
 }
 </style>
