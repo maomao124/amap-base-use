@@ -10,7 +10,7 @@
 import {initAMap, destroy} from '../utils/amapUtils'
 
 export default {
-    name: "View1",
+    name: "View6",
     data()
     {
         return {
